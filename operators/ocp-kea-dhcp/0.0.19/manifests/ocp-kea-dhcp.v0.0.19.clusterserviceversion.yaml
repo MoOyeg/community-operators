@@ -54,7 +54,7 @@ metadata:
             "interfaces-config": {
               "dhcp-socket-type": "raw",
               "interfaces": [
-                "eth0"
+                "net1"
               ]
             },
             "lease-database": {
@@ -87,6 +87,11 @@ metadata:
                 "name": "domain-name"
               }
             ],
+            "placement": {
+              "podAnnotations": {
+                "k8s.v1.cni.cncf.io/networks": "dhcp-net"
+              }
+            },
             "rebind-timer": 32400,
             "renew-timer": 21600,
             "subnet4": [
@@ -155,7 +160,7 @@ metadata:
             "interfaces-config": {
               "dhcp-socket-type": "raw",
               "interfaces": [
-                "eth0"
+                "net1"
               ]
             },
             "lease-database": {
@@ -174,6 +179,11 @@ metadata:
                 "severity": "INFO"
               }
             ],
+            "placement": {
+              "podAnnotations": {
+                "k8s.v1.cni.cncf.io/networks": "dhcp-net"
+              }
+            },
             "rebind-timer": 32400,
             "renew-timer": 21600,
             "replicas": 2,
@@ -214,7 +224,7 @@ metadata:
           "spec": {
             "interfaces-config": {
               "interfaces": [
-                "eth0"
+                "net1"
               ]
             },
             "lease-database": {
@@ -238,6 +248,11 @@ metadata:
                 "name": "dns-recursive-name-server"
               }
             ],
+            "placement": {
+              "podAnnotations": {
+                "k8s.v1.cni.cncf.io/networks": "dhcp6-net"
+              }
+            },
             "preferred-lifetime": 3000,
             "subnet6": [
               {
@@ -364,7 +379,7 @@ metadata:
               "interfaces-config": {
                 "dhcp-socket-type": "raw",
                 "interfaces": [
-                  "eth0"
+                  "net1"
                 ]
               },
               "lease-database": {
@@ -382,6 +397,11 @@ metadata:
                   "severity": "INFO"
                 }
               ],
+              "placement": {
+                "podAnnotations": {
+                  "k8s.v1.cni.cncf.io/networks": "dhcp-net"
+                }
+              },
               "subnet4": [
                 {
                   "id": 1,
@@ -411,11 +431,11 @@ metadata:
     capabilities: Basic Install
     categories: Networking
     containerImage: quay.io/mooyeg/ocp-kea-dhcp:v0.0.19
-    createdAt: "2026-03-12T23:59:04Z"
+    createdAt: "2026-03-13T02:14:10Z"
     description: Manages ISC Kea DHCP servers on Kubernetes and OpenShift
     operators.operatorframework.io/builder: operator-sdk-v1.38.0
     operators.operatorframework.io/project_layout: go.kubebuilder.io/v4
-    repository: https://github.com/openshift/ocp-kea-dhcp
+    repository: https://github.com/MoOyeg/kea-dhcp-operator
   name: ocp-kea-dhcp.v0.0.19
   namespace: placeholder
 spec:
@@ -789,7 +809,7 @@ spec:
   - dhcpv6
   links:
   - name: Kea DHCP Operator
-    url: https://github.com/openshift/ocp-kea-dhcp
+    url: https://github.com/MoOyeg/kea-dhcp-operator
   - name: ISC Kea Documentation
     url: https://kea.readthedocs.io/
   maintainers:
